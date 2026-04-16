@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Fire Homes
+
+Fire Homes is a property listing web application built with Next.js and Firebase. It provides a modern interface for browsing properties while giving administrators tools to manage listings from a single platform.
+
+## Tech Stack
+
+- Next.js
+- Firebase Authentication
+- Cloud Firestore
+- Firebase Storage
+
+## Features
+
+### Admin
+
+- Manage properties with full CRUD operations
+- Upload and manage property-related assets
+- Maintain listing data in Firestore
+
+### User
+
+- Search properties
+- Filter property results
+- Save favorite properties
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js
+- npm
+- Firebase project configuration
+
+### Environment Variables
+
+Use [`.env.example`](/Users/jeans/Dev/fire-homes/.env.example:1) as the template and place your real values in `.env.local`.
+
+### Install Dependencies
+
+```bash
+npm install
+```
+
+### Run the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` starts the development server
+- `npm run build` builds the app for production
+- `npm run start` starts the production server
+- `npm run lint` runs linting
 
-## Learn More
+## Project Goal
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is designed to support both property administrators and end users in a single workflow: admins can manage listings efficiently, and users can discover properties through search, filtering, and favorites.
