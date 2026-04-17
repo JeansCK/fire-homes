@@ -55,9 +55,9 @@ export default async function PropertySearch({
   }
 
   return (
-    <div className="max-w-screen-lg mx-auto">
-      <h1 className="text-4xl font-bold p-5">Property Search</h1>
-      <Card>
+    <div className="mx-auto w-full max-w-screen-lg px-4 py-4 sm:px-6 sm:py-6">
+      <h1 className="mb-4 text-3xl font-bold sm:mb-6 sm:text-4xl">Property Search</h1>
+      <Card className="gap-4 sm:gap-6">
         <CardHeader>
           <CardTitle>
             Filter
@@ -69,7 +69,7 @@ export default async function PropertySearch({
           </Suspense>
         </CardContent>
       </Card>
-      <div className="grid grid-cols-3 mt-5 gap-5">
+      <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {data.map(property => {
           const addressLine1 = [property.address1, property.address2]
             .filter(addressLine => !!addressLine)
@@ -78,9 +78,9 @@ export default async function PropertySearch({
             .filter(addressLine => !!addressLine)
             .join(", ");
           return (
-            <Card key={property.id} className="pt-0 overflow-hidden">
+            <Card key={property.id} className="overflow-hidden pt-0">
               <CardContent className="px-0 pb-0">
-                <div className="h-40 relative bg-sky-50 text-zinc-400 flex flex-col justify-center items-center">
+                <div className="relative flex h-48 flex-col items-center justify-center bg-sky-50 text-zinc-400 sm:h-44">
                   {(!verifiedToken || !verifiedToken.admin) && (
                     <ToggleFavoriteButton isFavorites={userFavorites[property.id]} propertyId={property.id} />)}
                   {!!property.images?.[0] && (
@@ -98,20 +98,20 @@ export default async function PropertySearch({
                     </>
                   )}
                 </div>
-                <div className="flex flex-col gap-5 px-5 pt-5">
-                  <p>{addressLine1}<br />{addressLine2}</p>
-                  <div className="flex gap-5">
-                    <div className="flex gap-2">
+                <div className="flex flex-col gap-4 px-5 py-5">
+                  <p className="text-base leading-7 break-words">{addressLine1}<br />{addressLine2}</p>
+                  <div className="flex flex-wrap gap-4">
+                    <div className="flex items-center gap-2">
                       <BedIcon />{property.bedrooms}
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex items-center gap-2">
                       <BathIcon />{property.bathrooms}
                     </div>
                   </div>
-                  <p className="text-2xl">
+                  <p className="text-xl font-semibold sm:text-2xl">
                     ${numeral(property.price).format("0,0")}
                   </p>
-                  <Button asChild>
+                  <Button asChild className="w-full">
                     <Link href={`/property/${property.id}`}>
                       View Property
                     </Link>
@@ -122,7 +122,7 @@ export default async function PropertySearch({
           )
         })}
       </div>
-      <div className="flex gap-2 items-center justify-center py-10">
+      <div className="flex flex-wrap items-center justify-center gap-2 py-8 sm:py-10">
         {Array.from({ length: totalPages }).map((_, i) => {
           const newSearchParams = new URLSearchParams();
 

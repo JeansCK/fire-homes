@@ -49,7 +49,10 @@ export default function FilterForm() {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="grid grid-cols-4 gap-2">
+      <form
+        onSubmit={form.handleSubmit(handleSubmit)}
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
+      >
         <FormField control={form.control} name="minPrice" render={({ field }) => (
           <FormItem>
             <FormLabel>
@@ -80,7 +83,7 @@ export default function FilterForm() {
             </FormControl>
           </FormItem>
         )} />
-        <Button type="submit" className="mt-auto">
+        <Button type="submit" className="w-full sm:col-span-2 xl:col-span-1 xl:mt-auto">
           Search
         </Button>
       </form>
